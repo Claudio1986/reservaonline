@@ -53,13 +53,19 @@ else{
 <body>
 <?php 
 
-	 /*$sql="SELECT * from $button";
-	 $result=mysqli_query($bd,$sql);*/
-
   $result = "SELECT * from $id_table WHERE id=".$id;    
-  $getuser = mysqli_query($bd ,$result);
+  $getuser = mysqli_query($result,$bd);
+  var_dump($getuser ) ;
+ /*
+ $sql="SELECT Lastname,Age FROM Persons ORDER BY Lastname";
+  $result=mysqli_query($con,$sql)
 
-  $row = mysqli_fetch_array($getuser);
+ 
+ 
+ */
+
+    $row = mysqli_fetch_assoc($getuser);
+ // $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
                   $id = $row[0];
                   $fila1 = utf8_encode($row['1']);                  
                   $fila4 = utf8_encode($row['description']);

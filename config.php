@@ -1,18 +1,40 @@
-<?php 
-//connect BD login
-// mysql.hostinger.es: es donde se aloja el servidor
-//u303981744_root: es user de la base de datos
-//908862011: es password de la base de datos
-$bd = mysql_connect('mysql.hostinger.es','u303981744_root','908862011');
-//$bd = mysql_connect('mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/','adminN63vzia','Scr8K4IiBFp1');
-//select BD user
-// u303981744_bd1: es el nombre de la base de datos
 
-$select = mysql_select_db('908862011', $bd);
-//
-//$bd = mysqli_connect('mysql.hostinger.es','u303981744_root','908862011','u303981744_bd1'); 
-//if (!$bd) { 
-  //  die('Could not connect to MySQL: ' . mysqli_error($bd)); 
-//} 
-//echo 'Connection OK'; mysqli_close($bd);  
-?> 
+<?php
+/*
+class foo_mysqli extends mysqli {
+    public function __construct($host, $usuario, $contraseña, $bd) {
+        parent::init();
+
+        if (!parent::options(MYSQLI_INIT_COMMAND, 'SET AUTOCOMMIT = 0')) {
+            die('Falló la configuración de MYSQLI_INIT_COMMAND');
+        }
+
+        if (!parent::options(MYSQLI_OPT_CONNECT_TIMEOUT, 5)) {
+            die('Falló la configuración de MYSQLI_OPT_CONNECT_TIMEOUT');
+        }
+
+        if (!parent::real_connect($host, $usuario, $contraseña, $bd)) {
+            die('Error de conexión (' . mysqli_connect_errno() . ') '
+                    . mysqli_connect_error());
+        }
+    }
+}
+
+$bd = new foo_mysqli('mysql.hostinger.es', 'u303981744_root', '908862011', 'u303981744_bd1');
+
+echo 'Coneccion Establecida satisfactoriamente ' . $bd->host_info . "\n";
+
+$bd->close();*/
+//==================================================
+$bd=mysqli_connect("mysql.hostinger.es","u303981744_root","908862011","u303981744_bd1");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+//mysqli_free_result($result);
+
+mysqli_close($bd);
+//==================================================
+
+?>
