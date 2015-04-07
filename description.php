@@ -52,25 +52,33 @@ else{
 </head>
 <body>
 <?php 
+//echo "primer variable  ";
+ var_dump($id ) ;
+  $result = "SELECT * from $id_table WHERE id=".$id;  
+  //echo "<br>Segunda Variable";
+ var_dump($result ) ;    
+  $getuser = mysqli_query($bd,$result);
+//  echo "variable 3   ";
+ var_dump($getuser ) ;
+  //=================begin foma antigua==========
+ // $result = "SELECT * from $id_table WHERE id=".$id;    
+ // $getuser = mysql_query($result ,$bd);
+// $result=mysqli_query($con,$sql)
+//=================end foma antigua==========
 
-  $result = "SELECT * from $id_table WHERE id=".$id;    
-  $getuser = mysqli_query($result,$bd);
-  var_dump($getuser ) ;
- /*
- $sql="SELECT Lastname,Age FROM Persons ORDER BY Lastname";
-  $result=mysqli_query($con,$sql)
-
- 
- 
- */
-
-    $row = mysqli_fetch_assoc($getuser);
- // $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+  //  $row = mysqli_fetch_assoc($getuser);
+    //forma ANTIGUA  $row = mysql_fetch_array($getuser);
+   $row=mysqli_fetch_array($getuser,MYSQLI_ASSOC);
                   $id = $row[0];
                   $fila1 = utf8_encode($row['1']);                  
                   $fila4 = utf8_encode($row['description']);
                   $fila5 = utf8_encode($row['img']);
+				  // echo "variable 4";
+			     var_dump($fila1 ) ;
+				   
  ?>
+
+ 
   <div class="descri">  
    <div class="name">
     	<b>Name:</b> <?php echo $fila1;?>
