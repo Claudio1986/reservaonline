@@ -60,7 +60,7 @@ else{
 
  
 
-   $row=mysqli_fetch_array($getuser,MYSQLI_ASSOC);
+   $row=mysqli_fetch_array($getuser);
                   $id = $row[0];
                   $fila1 = utf8_encode($row["1"]);                  
                   $fila4 = utf8_encode($row['description']);

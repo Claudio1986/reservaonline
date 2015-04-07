@@ -30,16 +30,16 @@ $sql="SELECT * from $button";
 =======================================================
 */
    include("config.php");
-   $consult = mysql_query("SELECT id from user WHERE email ='$user'");
-   $row_id  = mysql_fetch_assoc($consult);
+   $consult = mysqli_query("SELECT id from user WHERE email ='$user'");
+   $row_id  = mysqli_fetch_assoc($consult);
 
    $id_user = $row_id['id'];
   // Consult array 
-   $con = mysql_query("SELECT * from $id_table WHERE id='$id'");
-   $row = mysql_fetch_array($con);
+   $con = mysqli_query("SELECT * from $id_table WHERE id='$id'");
+   $row = mysqli_fetch_array($bd);
   //Insert user
   if (count($row) > 0){
-      mysql_query("INSERT INTO reservas (days, $id_table, id_user) values ( '$days' , '$id', '$id_user')");
+      mysqli_query("INSERT INTO reservas (days, $id_table, id_user) values ( '$days' , '$id', '$id_user')");
       //mysql_query("UPDATE  $id_table SET state='off' WHERE id = '$id'");
         
          echo "<script language='javascript'>
@@ -48,7 +48,7 @@ $sql="SELECT * from $button";
         
   }
   
-     mysql_close();
+     mysqli_close();
 
   ?>
 

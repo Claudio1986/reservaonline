@@ -11,9 +11,9 @@ include("config.php");
 
 //query user
 $query="SELECT email,pass FROM user WHERE email='$email' and pass='$pass' ";
-$rs=mysql_query($query); 
-$row=mysql_fetch_object($rs); 
-$getuser = mysql_num_rows($rs); 
+$rs=mysqli_query($query); 
+$row=mysqli_fetch_object($rs); 
+$getuser = mysqli_num_rows($rs); 
 
 //Si existe el usuario lo va a redireccionar a la pagina de Bienvenida.
 
