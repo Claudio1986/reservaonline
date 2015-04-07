@@ -52,21 +52,21 @@ else{
 </head>
 <body>
 <?php 
- var_dump($id ) ;
+ 
   $result = "SELECT * from $id_table WHERE id=".$id;  
  
- var_dump($result ) ;    
+ 
   $getuser = mysqli_query($bd,$result);
 
- var_dump($getuser ) ;
+ 
 
    $row=mysqli_fetch_array($getuser,MYSQLI_ASSOC);
                   $id = $row[0];
-                  $fila1 = utf8_encode($row['1']);                  
+                  $fila1 = utf8_encode($row["1"]);                  
                   $fila4 = utf8_encode($row['description']);
                   $fila5 = utf8_encode($row['img']);
-				  echo "variable filas <br>";
-			     var_dump($fila1 ) ;
+				 
+			   
 				   
  ?>
 
