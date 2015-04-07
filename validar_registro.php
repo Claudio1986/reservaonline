@@ -4,9 +4,9 @@ include("config.php");
  $filter = $_GET['button'];
 
 $result = "SELECT name from user WHERE name LIKE '$filter'";
-$getuser = mysql_query($result ,$bd);
+$getuser = mysqli_query($bd,$result);
 
-if (mysql_num_rows($getuser) == 0) {
+if (mysqli_fetch_array($getuser) == 0) {
 	$msg = "<label>User available</label>";
 }
 else{

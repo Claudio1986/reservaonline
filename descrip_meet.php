@@ -18,10 +18,11 @@
 <body>
 <?php 
 
-  $result = "SELECT * from meeting WHERE id=".$id;    
-  $getuser = mysql_query($result ,$bd);
+  $result = "SELECT * from meeting WHERE id=".$id;  
+  // $getuser = mysqli_query($bd,$result);  
+  $getuser = mysqli_query($bd, $result);
 
-  $row = mysql_fetch_array($getuser);
+  $row = mysqli_fetch_array($getuser);
                   $age      = $row["age"];
                   $mail     = utf8_encode($row['mail']);
                   $interest = utf8_encode($row['interest']);
@@ -30,7 +31,7 @@
  ?>
   <div class="descri">  
    <div class="name">
-    	<b>Age:</b> <?php echo $age ;?>
+    	<b>Edad:</b> <?php echo $age ;?>
     </div><br>
     
     <div class="name">

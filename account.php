@@ -6,8 +6,8 @@
 		  //***********************
 			//   QUERY ID USER  
 			//***********************
-   $consult = mysql_query("SELECT id,name from user WHERE email ='$email'");
-   $row_id  = mysql_fetch_assoc($consult);
+   $consult = mysqli_query("SELECT id,name from user WHERE email ='$email'");
+   $row_id  = mysqli_fetch_assoc($consult);
    $id = $row_id['id'];
    $name = $row_id['name'];
 
@@ -15,14 +15,14 @@
 			//    QUERY USER
 			//***********************
 $result = "SELECT nombre,title,finca, hotel.id, tuorism.id, book.id from hotel,tuorism,book,reservas WHERE reservas.hotel = hotel.id AND reservas.id_user = '$id' AND reservas.tuorism = tuorism.id AND reservas.book = book.id ";
-  $getuser = mysql_query($result ,$bd);
+  $getuser = mysqli_query($bd,$result);
 
   		//***********************
 			//    AMOUNT RESERVE
 			//***********************
   $res = "SELECT COUNT(*) from reservas WHERE reserva.id_user = '$id'";
-  $get = mysql_query($res ,$bd);
-  $count = mysql_result($get,'0');
+  $get = mysqli_query($bd,$res);
+  $count = mysqli_result($get,'0');
 
   		//***********************
 			//   MSG DELETED
@@ -39,7 +39,7 @@ $result = "SELECT nombre,title,finca, hotel.id, tuorism.id, book.id from hotel,t
 			//    EMPTY TABLE
 			//***********************
 
- $num = mysql_num_rows($getuser);
+ $num = mysqli_num_rows($getuser);
 	    if ($num == "") {
 	        $show = '<div class="alert alert-info">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
