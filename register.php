@@ -11,18 +11,18 @@ include("config.php");
 //consult user
 $result = "SELECT * from user WHERE email='$email' || pass='$pass'";
 
-$ejecutar = mysql_query($result, $bd);
+$ejecutar = mysqli_query($bd,$result);
 
 if($pass != $cpass) {
 header("location: view_register.php?iguales=1");
 }
 
-elseif (mysql_num_rows($ejecutar) > 0) {
+elseif (mysqli_num_rows($ejecutar) > 0) {
 header("location: view_register.php?iguales=2");
 }
 
-elseif (mysql_num_rows($ejecutar) == 0){
-mysql_query("INSERT INTO user (name, email, pass) values ( '$username' , '$email', '$pass')");
+elseif (mysqli_num_rows($ejecutar) == 0){
+mysqli_query("INSERT INTO user (name, email, pass) values ( '$username' , '$email', '$pass')");
 $_SESSION['email']    = $email;
 $_SESSION['username'] = $username;
 $_SESSION['pass']     = $pass;
